@@ -1,7 +1,7 @@
 diff --git a/node_modules/next/dist/trace/report/to-json.js b/node_modules/next/dist/trace/report/to-json.js
 --- a/node_modules/next/dist/trace/report/to-json.js
 +++ b/node_modules/next/dist/trace/report/to-json.js
-@@ -72,7 +72,19 @@ class RotatingWriteStream {
+@@ -72,7 +72,20 @@ class RotatingWriteStream {
          this.sizeLimit = sizeLimit;
          this.createWriteStream();
      }
@@ -23,8 +23,7 @@ diff --git a/node_modules/next/dist/trace/report/to-json.js b/node_modules/next/
 +        this.writeStream = stream;
      }
      // Recreate the file
-     async rotate() {
-@@ -82,7 +94,7 @@ class RotatingWriteStream {
+@@ -82,7 +95,7 @@ class RotatingWriteStream {
              _fs.default.unlinkSync(this.file);
          } catch (err) {
              // It's fine if the file does not exist yet
