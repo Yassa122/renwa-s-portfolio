@@ -39,6 +39,13 @@ export function Hero() {
               View selected work
             </a>
             <a
+              href={profile.cvUrl}
+              download={profile.cvFileName}
+              className="rounded-full border border-[var(--color-rose-soft)]/80 bg-white/80 px-6 py-3 text-sm font-semibold text-[var(--color-rose-deep)] shadow-sm backdrop-blur transition hover:border-[var(--color-rose-deep)]"
+            >
+              Download CV
+            </a>
+            <a
               href={profile.linkedIn}
               target="_blank"
               rel="noreferrer noopener"

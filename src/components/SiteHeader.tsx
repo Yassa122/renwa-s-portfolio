@@ -1,5 +1,6 @@
 "use client";
 
+import { profile } from "@/data/profile";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -78,12 +79,21 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <a
-          href="#contact"
-          className="hidden rounded-full bg-[var(--color-rose-deep)] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[var(--color-rose-soft)]/40 transition hover:brightness-110 md:inline-flex"
-        >
-          Let&apos;s talk
-        </a>
+        <div className="hidden items-center gap-2 md:flex">
+          <a
+            href={profile.cvUrl}
+            download={profile.cvFileName}
+            className="rounded-full border border-[var(--color-rose-soft)] bg-white/80 px-4 py-2 text-sm font-semibold text-[var(--color-rose-deep)] shadow-sm transition hover:border-[var(--color-rose-deep)]"
+          >
+            Download CV
+          </a>
+          <a
+            href="#contact"
+            className="rounded-full bg-[var(--color-rose-deep)] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[var(--color-rose-soft)]/40 transition hover:brightness-110"
+          >
+            Let&apos;s talk
+          </a>
+        </div>
       </div>
 
       <div
@@ -101,6 +111,14 @@ export function SiteHeader() {
               {l.label}
             </a>
           ))}
+          <a
+            href={profile.cvUrl}
+            download={profile.cvFileName}
+            onClick={() => setOpen(false)}
+            className="rounded-xl px-3 py-3 text-sm font-semibold text-[var(--color-rose-deep)] hover:bg-[var(--color-blush)]/70"
+          >
+            Download CV
+          </a>
           <a
             href="#contact"
             onClick={() => setOpen(false)}

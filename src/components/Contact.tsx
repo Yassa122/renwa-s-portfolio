@@ -61,6 +61,13 @@ export function Contact() {
             </div>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
+                href={profile.cvUrl}
+                download={profile.cvFileName}
+                className="rounded-full bg-[var(--color-paper)] px-5 py-2.5 text-sm font-semibold text-[var(--color-rose-deep)] shadow-md ring-2 ring-[var(--color-rose-deep)] transition hover:bg-[var(--color-blush)]"
+              >
+                Download CV
+              </a>
+              <a
                 href={profile.linkedIn}
                 target="_blank"
                 rel="noreferrer noopener"

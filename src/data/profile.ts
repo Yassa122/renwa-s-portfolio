@@ -7,6 +7,8 @@ export const profile = {
   email: "renwaabouelella@gmail.com",
   phone: "+20 1151770132",
   linkedIn: "https://www.linkedin.com/in/renwa-abouelella",
+  cvUrl: "/renwa-abouelella-cv.pdf",
+  cvFileName: "Renwa-Abouelella-CV.pdf",
   summary:
     "Software Engineer with experience in backend development, cloud-native applications, microservices, clean architecture, and DevOps practices. Skilled in building scalable and maintainable systems using JavaScript, TypeScript, Python, C#, PHP, SQL, and modern backend frameworks. Hands-on experience with AWS, GCP, and OCI services, containerization, CI/CD, infrastructure automation, and database-driven applications. Interested in roles focused on backend systems, distributed applications, APIs, and scalable product development.",
   skillGroups: [
