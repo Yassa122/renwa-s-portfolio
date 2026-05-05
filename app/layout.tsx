@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   title: "Renwa Abouelella — Software Engineer",
   description:
     "Backend development, cloud-native systems, and scalable engineering. New Cairo, Egypt.",
+  themeColor: "#9b4d5c",
+  icons: {
+    icon: [{ url: "/icon", sizes: "512x512", type: "image/png" }],
+    apple: "/apple-icon",
+  },
   openGraph: {
     title: "Renwa Abouelella — Software Engineer",
     description:
