@@ -1,0 +1,35 @@
+diff --git a/node_modules/next/dist/trace/report/to-json.js b/node_modules/next/dist/trace/report/to-json.js
+--- a/node_modules/next/dist/trace/report/to-json.js
++++ b/node_modules/next/dist/trace/report/to-json.js
+@@ -72,7 +72,19 @@ class RotatingWriteStream {
+         this.sizeLimit = sizeLimit;
+         this.createWriteStream();
+     }
+     createWriteStream() {
+-        this.writeStream = _fs.default.createWriteStream(this.file, writeStreamOptions);
++        const stream = _fs.default.createWriteStream(this.file, writeStreamOptions);
++        stream.on('error', (err)=>{
++            if (err.code === 'EPERM' || err.code === 'EACCES' || err.code === 'EBUSY') {
++                stream.destroy();
++                const { Writable } = require('stream');
++                this.writeStream = new Writable({
++                    write(_chunk, _encoding, cb) {
++                        cb();
++                    }
++                });
++                return;
++            }
++        });
++        this.writeStream = stream;
+     }
+     // Recreate the file
+     async rotate() {
+@@ -82,7 +94,7 @@ class RotatingWriteStream {
+             _fs.default.unlinkSync(this.file);
+         } catch (err) {
+             // It's fine if the file does not exist yet
+-            if (err.code !== 'ENOENT') {
++            if (err.code !== 'ENOENT' && err.code !== 'EPERM') {
+                 throw err;
+             }
+         }
